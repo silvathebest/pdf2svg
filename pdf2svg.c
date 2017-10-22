@@ -156,7 +156,8 @@ int main(int argn, char *args[])
 			free(svgFilenameBuffer);
 		}
 		else {
-			page = poppler_document_get_page_by_label(pdffile, pageLabel);
+			//get by page index instead of label
+			page = poppler_document_get_page(pdffile, atoi(pageLabel));
 			conversionErrors = convertPage(page, svgFilename);
 			g_free(pageLabel);
 		}
